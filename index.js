@@ -78,12 +78,71 @@ const setUp=()=> {
     );
 }
 
+//Pregunta 1
+const p1t1 = new THREE.Matrix4();
+p1t1.set (
+    1, 0, 0, 0.01,
+    0, 1, 0, 0,
+    0, 0, 1, 0,
+    0, 0, 0, 1
+);
 
+//Pregunta 2
+const p2t1 = new THREE.Matrix4();
+p2t1.set (
+    1, 0, 0, 0.01,
+    0, 1, 0, 0,
+    0, 0, 1, 0.02,
+    0, 0, 0, 1
+);
 
-//Matriz de transformacion
+//Pregunta 3
+const p3t1 = new THREE.Matrix4();
+p3t1.set (
+    1, 0, 0, 0,
+    0, 1.001, 0, 0,
+    0, 0, 1, 0,
+    0, 0, 0, 1
+);
 
-const t1 = new THREE.Matrix4();
-t1.set (
+//Pregunta 4
+const p4t1 = new THREE.Matrix4();
+p4t1.set (
+    1.001, 0, 0, 0,
+    0, 1.001, 0, 0,
+    0, 0, 1.001, 0,
+    0, 0, 0, 1
+);
+
+//Pregunta 5
+const p5t1 = new THREE.Matrix4();
+p5t1.set (
+    Math.cos(0.01), -1*Math.sin(0.01), 0, 0,
+    Math.sin(0.01), Math.cos(0.01), 0, 0,
+    0, 0, 1, 0,
+    0, 0, 0, 1
+);
+
+//Pregunta 6
+const p6t1 = new THREE.Matrix4();
+p6t1.set (
+    Math.cos(0.01), -1*Math.sin(0.01), 0, 0,
+    Math.sin(0.01), Math.cos(0.01), 0, 0,
+    0, 0, 1, 0,
+    0, 0, 0, 1
+);
+
+const p6t2 = new THREE.Matrix4();
+p6t2.set (
+    1, 0, 0, 0,
+    0, Math.cos(0.02), -1*Math.sin(0.02), 0,
+    0, Math.sin(0.02), Math.cos(0.02), 0,
+    0, 0, 0, 1
+);
+
+//Pregunta 7
+const p7t1 = new THREE.Matrix4();
+p7t1.set (
     1, 0, 0, 0.02,
     0, 1, 0, 0,
     0, 0, 1, 0,
@@ -91,24 +150,24 @@ t1.set (
 );
 
 
-const t2 = new THREE.Matrix4();
-t2.set (
+const p7t2 = new THREE.Matrix4();
+p7t2.set (
     1.002, 0, 0, 0,
     0, 1.002, 0, 0,
     0, 0, 1.002, 0,
     0, 0, 0, 1
 );
 
-const t3 = new THREE.Matrix4();
-t3.set (
+const p7t3 = new THREE.Matrix4();
+p7t3.set (
     1, 0, 0, 0,
     0, Math.cos(0.01), -1*Math.sin(0.01), 0,
     0, Math.sin(0.01), Math.cos(0.01), 0,
     0, 0, 0, 1
 );
 
-const t4 = new THREE.Matrix4();
-t4.set (
+const p7t4 = new THREE.Matrix4();
+p7t4.set (
     Math.cos(0.01), 0, Math.sin(0.01), 0,
     0, 1, 0, 0,
     -1*Math.sin(0.01), 0, Math.cos(0.01), 0,
@@ -116,7 +175,13 @@ t4.set (
 );
 
 const update = () => {
- cube.geometry.applyMatrix4(t1.multiply(t2.multiply(t3.multiply(t4))));
+	//cube.geometry.applyMatrix4(p1t1); //Pregunta1
+	//cube.geometry.applyMatrix4(p2t1); //Pregunta2
+	//cube.geometry.applyMatrix4(p3t1); //Pregunta3
+	//cube.geometry.applyMatrix4(p4t1); //Pregunta4
+	//cube.geometry.applyMatrix4(p5t1); //Pregunta5
+	//cube.geometry.applyMatrix4(p6t1.multiply(p6t2)); //Pregunta6
+	cube.geometry.applyMatrix4(p7t1.multiply(p7t2.multiply(p7t3.multiply(p7t4)))); //Pregunta7
 }
 
 const render = () => {
